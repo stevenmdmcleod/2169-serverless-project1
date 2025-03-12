@@ -1,7 +1,7 @@
 {
-  "name": "nodefundamentals",
+  "name": "Foundations Project",
   "version": "1.0.0",
-  "description": "node fundamentals",
+  "description": "2169 serverless project 1",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -11,7 +11,10 @@
   "author": "Steven M",
   "license": "ISC",
   "dependencies": {
-    "winston": "3.14.2"
+    "winston": "3.14.2",
+    "@aws-sdk/client-dynamodb": "^3.758.0",
+    "@aws-sdk/lib-dynamodb": "^3.758.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "jest": "^29.7.0"
