@@ -1,0 +1,33 @@
+2025-03-12T19:08:49.705Z [info]: Incoming POST : /User
+2025-03-12T19:09:11.660Z [info]: Incoming POST : /user
+2025-03-12T19:10:05.095Z [info]: Incoming POST : /user
+2025-03-12T19:10:15.487Z [info]: Incoming GET : /user
+2025-03-12T19:19:24.172Z [info]: Incoming GET : /user
+2025-03-12T19:19:27.844Z [info]: Incoming POST : /user
+2025-03-12T19:23:33.540Z [info]: Incoming GET : /user
+2025-03-12T19:25:50.497Z [info]: Incoming POST : /user
+2025-03-12T19:27:17.524Z [info]: Incoming POST : /users
+2025-03-12T19:28:08.167Z [info]: Incoming POST : /users
+2025-03-12T19:28:47.985Z [info]: Incoming POST : /users
+2025-03-12T19:29:43.635Z [info]: Incoming POST : /users
+2025-03-12T19:31:20.036Z [info]: Incoming POST : /users
+2025-03-12T19:31:32.576Z [info]: Incoming POST : /users
+2025-03-12T19:33:28.156Z [info]: Incoming GET : /users
+2025-03-12T19:41:29.976Z [info]: Incoming GET : /users
+2025-03-12T19:41:33.949Z [info]: Incoming POST : /users
+2025-03-12T19:43:46.854Z [info]: Incoming POST : /users
+2025-03-12T19:47:45.288Z [info]: Incoming POST : /users
+2025-03-12T19:47:52.044Z [info]: Incoming GET : /users
+2025-03-12T19:51:54.188Z [info]: Incoming GET : /users
+2025-03-12T19:51:58.436Z [info]: Incoming POST : /users
+2025-03-12T19:52:46.995Z [info]: Incoming GET : /users
+2025-03-12T19:53:34.065Z [info]: Incoming GET : /users
+2025-03-12T19:55:12.118Z [info]: Incoming GET : /users
+2025-03-12T19:55:16.024Z [info]: Incoming POST : /users
+2025-03-12T19:55:46.692Z [info]: Incoming POST : /
+2025-03-12T19:55:58.374Z [info]: Incoming GET : /
+2025-03-12T19:56:25.842Z [info]: Incoming GET : /users/
+2025-03-12T19:57:19.674Z [info]: Get request made: [object Object]
+2025-03-12T20:00:50.709Z [info]: Get request made: [object Object]
+2025-03-12T21:53:21.415Z [info]: [object Object]
+2025-03-12T21:58:32.381Z [info]: id: 1dd774f0-41a2-40fc-b816-cbaa3e02fd6d, email: test@test.com
