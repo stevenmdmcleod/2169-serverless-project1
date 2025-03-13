@@ -16,7 +16,7 @@ async function getUser(UserId){
     if(!result){
         return {message: "Failed to get user", UserId};
     }else{
-        return {message: "Found user",UserId, user: result}
+        return {message: "Found user!", user: result}
     }
 }
 

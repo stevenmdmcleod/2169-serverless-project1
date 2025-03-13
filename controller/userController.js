@@ -13,10 +13,17 @@ router.get("/", (req, res) => {
     logger.info(`Get request made: ${req.body}`);
 });
 
-router.get("/:UserId", (req, res) => {
-    res.status(200).send("This is the root users route");
-    logger.info(`Get request made: ${req.body}`);
+
+router.get("/:userId", async (req, res) => {
+    const id = req.params.userId;
+    console.log(id);
+    //console.log(userService.getUser(id));
+    const user = await userService.getUser(id);
+    res.status(200).json(user);
+    //res.status(200).send("This is the root users route");
+    logger.info(`Get request made: id = ${id}`);
 });
+
 
 router.post("/", (req, res) => {
     const jsonData = req.body;
@@ -29,7 +36,17 @@ router.post("/", (req, res) => {
     );
 
     //res.status(201).json({message: "Item Created!", item: jsonData});
-  });
+});
+
+router.delete("/:userId", async (req, res) => {
+    const id = req.params.userId;
+    console.log(id);
+    //console.log(userService.getUser(id));
+    const msg = await userService.deleteUser(id);
+    res.status(200).json(msg);
+    //res.status(200).send("This is the root users route");
+    logger.info(`Delete request made: id = ${id}`);
+});
 
   function validateItemMiddleware(req, res, next){
     // check if there is a valid name and price

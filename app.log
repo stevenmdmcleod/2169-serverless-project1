@@ -31,3 +31,122 @@
 2025-03-12T20:00:50.709Z [info]: Get request made: [object Object]
 2025-03-12T21:53:21.415Z [info]: [object Object]
 2025-03-12T21:58:32.381Z [info]: id: 1dd774f0-41a2-40fc-b816-cbaa3e02fd6d, email: test@test.com
+2025-03-13T00:17:48.580Z [info]: Get request made: [object Object]
+2025-03-13T00:24:43.279Z [info]: Get request made: function header(name) {
+  if (!name) {
+    throw new TypeError('name argument is required to req.get');
+  }
+
+  if (typeof name !== 'string') {
+    throw new TypeError('name must be a string to req.get');
+  }
+
+  var lc = name.toLowerCase();
+
+  switch (lc) {
+    case 'referer':
+    case 'referrer':
+      return this.headers.referrer
+        || this.headers.referer;
+    default:
+      return this.headers[lc];
+  }
+}
+2025-03-13T00:27:51.122Z [info]: Get request made: function header(name) {
+  if (!name) {
+    throw new TypeError('name argument is required to req.get');
+  }
+
+  if (typeof name !== 'string') {
+    throw new TypeError('name must be a string to req.get');
+  }
+
+  var lc = name.toLowerCase();
+
+  switch (lc) {
+    case 'referer':
+    case 'referrer':
+      return this.headers.referrer
+        || this.headers.referer;
+    default:
+      return this.headers[lc];
+  }
+}
+2025-03-13T00:31:24.887Z [info]: Get request made: function header(name) {
+  if (!name) {
+    throw new TypeError('name argument is required to req.get');
+  }
+
+  if (typeof name !== 'string') {
+    throw new TypeError('name must be a string to req.get');
+  }
+
+  var lc = name.toLowerCase();
+
+  switch (lc) {
+    case 'referer':
+    case 'referrer':
+      return this.headers.referrer
+        || this.headers.referer;
+    default:
+      return this.headers[lc];
+  }
+}
+2025-03-13T00:32:39.317Z [info]: Get request made: function header(name) {
+  if (!name) {
+    throw new TypeError('name argument is required to req.get');
+  }
+
+  if (typeof name !== 'string') {
+    throw new TypeError('name must be a string to req.get');
+  }
+
+  var lc = name.toLowerCase();
+
+  switch (lc) {
+    case 'referer':
+    case 'referrer':
+      return this.headers.referrer
+        || this.headers.referer;
+    default:
+      return this.headers[lc];
+  }
+}
+2025-03-13T00:38:12.403Z [info]: Incoming GET : /users/9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T00:39:29.839Z [info]: Incoming GET : /users/9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T00:40:26.906Z [info]: Incoming GET : /users/9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T00:40:58.147Z [info]: Incoming GET : /users/9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T00:46:26.931Z [info]: Get request made: function header(name) {
+  if (!name) {
+    throw new TypeError('name argument is required to req.get');
+  }
+
+  if (typeof name !== 'string') {
+    throw new TypeError('name must be a string to req.get');
+  }
+
+  var lc = name.toLowerCase();
+
+  switch (lc) {
+    case 'referer':
+    case 'referrer':
+      return this.headers.referrer
+        || this.headers.referer;
+    default:
+      return this.headers[lc];
+  }
+}
+2025-03-13T01:20:53.842Z [info]: Get request made: 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:22:23.079Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:25:07.360Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:25:07.454Z [info]: Incoming GET : /favicon.ico
+2025-03-13T01:25:36.293Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:28:23.599Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:31:17.748Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:33:50.985Z [info]: Get request made: [object Object]
+2025-03-13T01:33:57.462Z [info]: Get request made: [object Object]
+2025-03-13T01:35:26.846Z [info]: Get request made: [object Object]
+2025-03-13T01:35:39.940Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:37:51.972Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:47:44.161Z [info]: Get request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
+2025-03-13T01:56:28.746Z [info]: Delete request made: id = 9ac03b52-5769-41fc-acb0-1a9c4664838d
