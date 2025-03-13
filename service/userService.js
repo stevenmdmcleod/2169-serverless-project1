@@ -30,4 +30,14 @@ async function deleteUser(UserId){
     }
 }
 
-module.exports = {createUser, getUser, deleteUser}
+async function updateUser(user){
+    const result = await userDao.updateUser(user);
+
+    if(!result){
+        return {message: "Failed to update user", user};
+    }else{
+        return {message: "Updated user", user}
+    }
+}
+
+module.exports = {createUser, getUser, deleteUser, updateUser}

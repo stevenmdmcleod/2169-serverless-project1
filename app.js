@@ -5,9 +5,9 @@ const app = express();
 
 const PORT = 3000;
 const userController = require('./controller/userController');
-//app.use(express.json());
 
-console.log(`running on port ${PORT}`);
+
+//console.log(`running on port ${PORT}`);
 
 
 app.use("/users", userController);

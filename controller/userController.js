@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const userService = require('../service/userService');
 const {logger} = require('../logger');
-//const app = express();
+
 const uuid = require('uuid');
-//app.use(express.json());
+
 router.use(express.json());
 
 
@@ -37,6 +37,14 @@ router.post("/", (req, res) => {
 
     //res.status(201).json({message: "Item Created!", item: jsonData});
 });
+
+router.put("/:userId", async (req, res) => {
+    const jsonData = req.body;
+    console.log(jsonData);
+    const msg = await userService.updateUser(jsonData)
+    res.status(200).json(msg);
+});
+
 
 router.delete("/:userId", async (req, res) => {
     const id = req.params.userId;

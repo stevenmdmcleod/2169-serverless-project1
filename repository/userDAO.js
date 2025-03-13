@@ -1,5 +1,5 @@
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand, UpdateCommand } = require("@aws-sdk/lib-dynamodb");
 
 const client = new DynamoDBClient({region: "us-east-2"});
 
@@ -55,8 +55,36 @@ async function deleteUser(UserId){
     }
 }
 
+async function updateUser(user){
+    console.log(user);
+    console.log(user.UserId);
+    console.log(user.email);
+    console.log(user.is_employed);
+    const command = new UpdateCommand({
+        TableName: "Users",
+        Key: {UserId : user.UserId},
+        //Item: {user}
+        UpdateExpression : "SET #email = :email, #is_employed = :is_employed",
+        ExpressionAttributeNames: {
+            '#email' : 'email',
+            '#is_employed' : 'is_employed'
+        },
+        ExpressionAttributeValues: {':email' : user.email, 
+            ':is_employed' : user.is_employed         
+        }
+    });
 
-module.exports = {createUser, getUser, deleteUser};
+    try {
+        await documentClient.send(command);
+        return user;
+        
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+module.exports = {createUser, getUser, deleteUser, updateUser};
 
 // const getUser = new GetCommand({
 //     TableName: "Users",
