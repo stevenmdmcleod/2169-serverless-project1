@@ -1,7 +1,7 @@
 const {logger} = require('./logger');
 const express = require('express');
 const app = express();
-
+app.use(express.json());
 
 const PORT = 3000;
 const userController = require('./controller/userController');

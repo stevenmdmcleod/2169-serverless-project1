@@ -1,5 +1,5 @@
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand, UpdateCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand, UpdateCommand, ScanCommand } = require("@aws-sdk/lib-dynamodb");
 
 const client = new DynamoDBClient({region: "us-east-2"});
 
@@ -39,6 +39,31 @@ async function getUser(UserId){
         return null;
     }
 }
+
+
+async function getUserByUsername(username){
+    const params = {
+        TableName: "Users",
+        FilterExpression: '#username = :username',
+      ExpressionAttributeNames: {
+        "#username": "username"
+      },
+      ExpressionAttributeValues: {
+        ':username': username
+      },
+    };
+        try {
+            const data = await client.send(new ScanCommand(params));
+            console.log("Success", data.Items);
+            return data;
+          } 
+          catch (err) {
+            console.log("Error", err);
+          }
+        
+};
+
+
 
 async function deleteUser(UserId){
     const command = new DeleteCommand({
@@ -84,7 +109,35 @@ async function updateUser(user){
     }
 }
 
-module.exports = {createUser, getUser, deleteUser, updateUser};
+
+async function updateManagerStatus(UserId, isManager){
+    console.log(UserId);
+    console.log(isManager);
+    
+    const command = new UpdateCommand({
+        TableName: "Users",
+        Key: {UserId},
+        
+        UpdateExpression : "SET #is_manager = :is_manager",
+        ExpressionAttributeNames: {
+            '#is_manager' : 'is_manager'
+            },
+        ExpressionAttributeValues: {':is_manager' : isManager        
+        }
+    });
+
+    try {
+        await documentClient.send(command);
+        return UserId;
+        
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+
+module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername};
 
 // const getUser = new GetCommand({
 //     TableName: "Users",

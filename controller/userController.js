@@ -5,13 +5,20 @@ const {logger} = require('../logger');
 
 const uuid = require('uuid');
 
-router.use(express.json());
+//router.use(express.json());
+
+
+router.post("/login", async (req, res) =>{
+    res.status(200).send("login endpoint reached!");
+    logger.info(`POST request made: ${req.body}`)
+});
 
 
 router.get("/", (req, res) => {
     res.status(200).send("This is the root users route");
     logger.info(`Get request made: ${req.body}`);
 });
+
 
 
 router.get("/:userId", async (req, res) => {
@@ -24,6 +31,16 @@ router.get("/:userId", async (req, res) => {
     logger.info(`Get request made: id = ${id}`);
 });
 
+
+router.get("/username/:username", async (req, res) => {
+    const username = req.params.username;
+    console.log(username);
+    //console.log(userService.getUser(id));
+    const response = await userService.getUserByUsername(username);
+    res.status(200).json(response.user[0]);
+    //res.status(200).send("This is the root users route");
+    logger.info(`Get request made: username = ${username}`);
+});
 
 router.post("/", (req, res) => {
     const jsonData = req.body;
@@ -38,10 +55,18 @@ router.post("/", (req, res) => {
     //res.status(201).json({message: "Item Created!", item: jsonData});
 });
 
-router.put("/:userId", async (req, res) => {
+router.put("/", async (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
-    const msg = await userService.updateUser(jsonData)
+    const msg = await userService.updateUser(jsonData);
+    res.status(200).json(msg);
+});
+
+
+router.put("/managerstatus", async (req, res) =>{
+    const jsonData = req.body;
+    console.log(jsonData);
+    const msg = await userService.updateManagerStatus(jsonData.UserId, jsonData.is_manager);
     res.status(200).json(msg);
 });
 

@@ -20,6 +20,16 @@ async function getUser(UserId){
     }
 }
 
+async function getUserByUsername(username){
+    const result = await userDao.getUserByUsername(username);
+
+    if(!result){
+        return {message: "Failed to get user", result};
+    }else{
+        return {message: "Found user!", user: result.Items}
+    }
+}
+
 async function deleteUser(UserId){
     const result = await userDao.deleteUser(UserId);
 
@@ -40,4 +50,14 @@ async function updateUser(user){
     }
 }
 
-module.exports = {createUser, getUser, deleteUser, updateUser}
+async function updateManagerStatus(UserId, isManager){
+    const result = await userDao.updateManagerStatus(UserId, isManager);
+
+    if(!result){
+        return {message: "Failed to update manager status for userId: ", UserId};
+    }else{
+        return {message: "Updated manager status successfully! ", UserId}
+    }
+}
+
+module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername}
