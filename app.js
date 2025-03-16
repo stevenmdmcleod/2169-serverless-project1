@@ -1,4 +1,4 @@
-const {logger} = require('./logger');
+const logger = require("./util/logger");
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -6,13 +6,20 @@ app.use(express.json());
 const PORT = 3000;
 const userController = require('./controller/userController');
 
+const ticketController = require('./controller/ticketController');
+
+const { authenticateToken } = require('./util/jwt');
 
 //console.log(`running on port ${PORT}`);
 
 
 app.use("/users", userController);
 
+
+
 app.use(loggerMiddleware);
+
+app.use("/tickets", ticketController);
 
 function loggerMiddleware(req, res, next){
   logger.info(`Incoming ${req.method} : ${req.url}`);
@@ -20,17 +27,12 @@ function loggerMiddleware(req, res, next){
 }
 
 
-/*userService.createUser(uuid.v4(), "user3@email3.com", true)
-     .then(data => console.log(data))
-     .catch(err => console.error(err));
-*/
-// userService.getUser("f88170ab-7ec0-4713-91df-fd34fe7d902d")
-//     .then(data => console.log(data))
-//     .catch(err => console.error(err));
+app.get("/protected", authenticateToken, (req, res) => {
+  return res.json({message: "Accessed Protected Route", user: req.user});
+})
 
-//userService.deleteUser("f88170ab-7ec0-4713-91df-fd34fe7d902d")
-  //  .then(data => console.log(data))
-    //.catch(err => console.error(err));
+
+
 
 app.listen(PORT, () => {
       console.log(`Server is listening on PORT: ${PORT}`);

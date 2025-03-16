@@ -54,8 +54,8 @@ async function getUserByUsername(username){
     };
         try {
             const data = await client.send(new ScanCommand(params));
-            console.log("Success", data.Items);
-            return data;
+            console.log("Success", data.Items[0]);
+            return data.Items[0];
           } 
           catch (err) {
             console.log("Error", err);

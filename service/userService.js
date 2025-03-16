@@ -1,14 +1,44 @@
 const userDao = require("../repository/userDAO");
+const bcrypt = require("bcrypt");
+const uuid = require('uuid');
 
-async function createUser(UserId, email, is_employed){
-    const result = await userDao.createUser({UserId, email, is_employed});
 
-    if(!result){
-        return {message: "Failed to create user"};
+async function createUser(user){
+
+    const rounds = 10;
+    const password = await bcrypt.hash(user.password, rounds);
+
+    if(validateUser(user) && !(await getUserByUsername(user.username)).user){
+        const data = await userDao.createUser({
+            username: user.username,
+            password,
+            UserId: uuid.v4(),
+            is_employed: true,
+            is_manager: false
+        });
+        return data;
     }else{
-        return {message: "Created user", user: result}
+        return null;
     }
 }
+
+
+async function validateLogin(username, password){
+    const user = await getUserByUsername(username);
+    console.log(password, user.user)
+    if(user && (await bcrypt.compare(password, user.user.password)) ){
+        return user;
+    }else{
+        return null;
+    }
+}
+
+function validateUser(user){
+    const usernameResult = user.username.length > 0;
+    const passwordResult = user.password.length > 0;
+    return (usernameResult && passwordResult);
+}
+
 
 async function getUser(UserId){
     const result = await userDao.getUser(UserId);
@@ -26,7 +56,7 @@ async function getUserByUsername(username){
     if(!result){
         return {message: "Failed to get user", result};
     }else{
-        return {message: "Found user!", user: result.Items}
+        return {message: "Found user!", user: result}
     }
 }
 
@@ -60,4 +90,4 @@ async function updateManagerStatus(UserId, isManager){
     }
 }
 
-module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername}
+module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername, validateLogin}
