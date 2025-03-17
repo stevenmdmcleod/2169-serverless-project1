@@ -5,6 +5,9 @@ const uuid = require('uuid');
 
 async function createUser(user){
 
+    if(!user.username || !user.password){
+        return null;
+    }
     const rounds = 10;
     const password = await bcrypt.hash(user.password, rounds);
 
@@ -24,16 +27,25 @@ async function createUser(user){
 
 
 async function validateLogin(username, password){
+    if(!username || !password){
+        return null;
+    }
     const user = await getUserByUsername(username);
-    console.log(password, user.user)
+    if(!user.user){
+        return null;
+    }
+    //console.log(user);
+    //console.log(password, user.user)
     if(user && (await bcrypt.compare(password, user.user.password)) ){
-        return user;
-    }else{
+        return user.user;
+    }
+    else{
         return null;
     }
 }
 
 function validateUser(user){
+    //helper function for createUser
     const usernameResult = user.username.length > 0;
     const passwordResult = user.password.length > 0;
     return (usernameResult && passwordResult);
@@ -41,6 +53,9 @@ function validateUser(user){
 
 
 async function getUser(UserId){
+    if(!UserId){
+        return null;
+    }
     const result = await userDao.getUser(UserId);
 
     if(!result){
@@ -51,8 +66,11 @@ async function getUser(UserId){
 }
 
 async function getUserByUsername(username){
+    if(!username){
+        return null;
+    }
     const result = await userDao.getUserByUsername(username);
-
+    //console.log(result);
     if(!result){
         return {message: "Failed to get user", result};
     }else{
@@ -61,6 +79,14 @@ async function getUserByUsername(username){
 }
 
 async function deleteUser(UserId){
+    if(!UserId){
+        return null;
+    }
+    user = await getUser(UserId);
+    
+    if(!user.user){
+        return {message: "user does not exist"};
+    }
     const result = await userDao.deleteUser(UserId);
 
     if(!result){
@@ -71,6 +97,9 @@ async function deleteUser(UserId){
 }
 
 async function updateUser(user){
+    if(!user){
+        return null;
+    }
     const result = await userDao.updateUser(user);
 
     if(!result){
@@ -81,6 +110,9 @@ async function updateUser(user){
 }
 
 async function updateManagerStatus(UserId, isManager){
+    if(!UserId || (isManager == null)){
+        return null;
+    }
     const result = await userDao.updateManagerStatus(UserId, isManager);
 
     if(!result){

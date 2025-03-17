@@ -54,7 +54,7 @@ async function getUserByUsername(username){
     };
         try {
             const data = await client.send(new ScanCommand(params));
-            console.log("Success", data.Items[0]);
+            
             return data.Items[0];
           } 
           catch (err) {
@@ -89,13 +89,13 @@ async function updateUser(user){
         TableName: "Users",
         Key: {UserId : user.UserId},
         //Item: {user}
-        UpdateExpression : "SET #email = :email, #is_employed = :is_employed",
+        UpdateExpression : "SET #email = :email, #name = :name",
         ExpressionAttributeNames: {
             '#email' : 'email',
-            '#is_employed' : 'is_employed'
+            '#name' : 'name'
         },
         ExpressionAttributeValues: {':email' : user.email, 
-            ':is_employed' : user.is_employed         
+            ':name' : user.name        
         }
     });
 
@@ -139,25 +139,3 @@ async function updateManagerStatus(UserId, isManager){
 
 module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername};
 
-// const getUser = new GetCommand({
-//     TableName: "Users",
-//     Key: { "user_id": "c2838efe-5c2a-4917-bfd3-af5dd38bcb05"}
-// });
-
-// promise
-// documentClient.send(getUser)
-//     .then(data => console.log(data))
-//     .catch(err => console.error(err));
-
-// async / await
-
-// async function fetchUser(){
-//     try{
-//         const data = await documentClient.send(getUser);
-//         console.log(data);
-//     }catch(err){
-//         console.error(err);
-//     }
-// }
-
-// fetchUser();

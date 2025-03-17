@@ -306,3 +306,31 @@
 2025-03-16T03:21:22.792Z [info]: Incoming GET : /protected
 2025-03-16T03:21:24.015Z [info]: Incoming GET : /protected
 2025-03-16T03:21:28.590Z [info]: Incoming GET : /protected
+2025-03-16T17:10:38.094Z [info]: Incoming GET : /protected
+2025-03-16T17:11:11.905Z [info]: Incoming GET : /protected
+2025-03-16T17:11:49.905Z [info]: Incoming GET : /protected
+2025-03-16T17:20:06.960Z [info]: Incoming PUT : /users/login
+2025-03-16T17:44:15.650Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T17:44:52.755Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:11:33.968Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:13:33.984Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:15:42.102Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:17:20.532Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:18:41.947Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:19:06.528Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:19:55.651Z [info]: Delete request made: id = fbf0754f-7272-4313-bfc0-9b821ececafb
+2025-03-16T18:20:44.277Z [info]: Delete request made: id = de9de599-817f-462f-93ea-c4e5b282df3c
+2025-03-16T18:45:48.026Z [info]: user: [object Object] was created
+2025-03-16T19:11:01.839Z [info]: Incoming GET : /protected
+2025-03-16T22:45:06.692Z [info]: user: [object Object] was created
+2025-03-16T22:45:41.401Z [info]: Incoming GET : /protected
+2025-03-16T22:45:48.238Z [info]: Incoming GET : /protected
+2025-03-16T22:48:17.088Z [info]: Incoming GET : /
+2025-03-16T22:48:23.608Z [info]: Get request made: [object Object]
+2025-03-16T22:48:59.174Z [info]: Get request made: id = 5b88b918-444f-478c-aa5d-4c58582e78cf
+2025-03-16T22:50:18.362Z [info]: Get request made: id = b605f0b2-a1ef-4e29-9586-874e3210fa22
+2025-03-16T22:50:56.687Z [info]: Get request made: username = b605f0b2-a1ef-4e29-9586-874e3210fa22
+2025-03-16T22:51:04.224Z [info]: Get request made: username = steven12
+2025-03-16T22:51:13.161Z [info]: Get request made: username = testuser
+2025-03-16T23:10:17.335Z [info]: Delete request made: id = 5b88b918-444f-478c-aa5d-4c58582e78cf
+2025-03-16T23:10:31.227Z [info]: Delete request made: id = 5b88b918-444f-478c-aa5d-4c58582e78cf

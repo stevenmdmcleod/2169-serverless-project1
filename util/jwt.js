@@ -24,19 +24,10 @@ async function authenticateToken(req, res, next){
         req.user = decodedToken;  // Add the decoded token to the request object
         next();  // Proceed to the next middleware or route handler
         }
-    });
-    //res.status(403).json({message: "Forbidden access!"})
-    
+    });   
 }
 
-async function decodeJWT(token){
-    try{
-        const user = jwt.verify(token, SECRET_KEY);
-        return user;
-    }catch(err){
-        logger.error(err);
-    }
-}
+
 
 module.exports = {
     authenticateToken
