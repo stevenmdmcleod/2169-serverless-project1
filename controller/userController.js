@@ -15,14 +15,9 @@ router.post("/login", async (req, res) => {
         return res.status(400).json({message: "bad request, please try again"})
     }
     const data = await userService.validateLogin(username, password);
-      
+    console.log(data);
     if(data){
-        // req.session.username = username;
-        //console.log(data);
         
-        //console.log(user.is_manager);
-        //console.log(user.UserId);
-        //console.log(user.username);
         const token = jwt.sign(
             {
                 id: data.UserId,
@@ -66,7 +61,7 @@ router.get("/username/:username", async (req, res) => {
     if(!response){
         return res.status(400).json({"message": "Invalid request"})
     }
-    res.status(200).json(response);
+    res.status(200).json(userService.omit(response.user, 'password'));
     
     logger.info(`Get request made: username = ${username}`);
 });
@@ -78,7 +73,7 @@ router.post("/", async (req, res) => {
     if(user){
         console.log(user);
         logger.info(`user: ${user} was created`);
-        res.status(201).json({Message: "User successfully created!", user: user});
+        res.status(201).json({Message: "User successfully created!", user: userService.omit(user, 'password')});
     }
     else{
         res.status(400).json({Message: 

@@ -34,10 +34,10 @@ async function validateLogin(username, password){
     if(!user.user){
         return null;
     }
-    //console.log(user);
-    //console.log(password, user.user)
+    console.log(user);
+    console.log(password, user.user)
     if(user && (await bcrypt.compare(password, user.user.password)) ){
-        return user.user;
+        return omit(user.user, 'password');
     }
     else{
         return null;
@@ -61,7 +61,7 @@ async function getUser(UserId){
     if(!result){
         return {message: "Failed to get user", UserId};
     }else{
-        return {message: "Found user!", user: result}
+        return {message: "Found user!", user: omit(result, 'password')}
     }
 }
 
@@ -103,9 +103,9 @@ async function updateUser(user){
     const result = await userDao.updateUser(user);
 
     if(!result){
-        return {message: "Failed to update user", user};
+        return {message: "Failed to update user", user: omit(user, 'password')};
     }else{
-        return {message: "Updated user", user}
+        return {message: "Updated user", user: omit(user, 'password')}
     }
 }
 
@@ -122,4 +122,9 @@ async function updateManagerStatus(UserId, isManager){
     }
 }
 
-module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername, validateLogin}
+function omit(obj, keyToOmit) {
+    const { [keyToOmit]: omitted, ...rest } = obj;
+    return rest;
+  }
+
+module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername, validateLogin, omit}

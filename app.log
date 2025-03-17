@@ -347,3 +347,16 @@
 2025-03-17T00:25:29.311Z [info]: Delete request made: id = 9e0cb0c7-13c7-4f71-9bcb-ddc5a32754f3
 2025-03-17T00:25:37.994Z [info]: Delete request made: id = f30a3562-bd4a-4601-ac4c-3ca3ee2939d9
 2025-03-17T00:25:53.407Z [info]: Delete request made: id = 69b00300-e44f-4755-95d3-68a72246665f
+2025-03-17T01:24:44.300Z [info]: Get request made: id = steven12
+2025-03-17T01:25:30.646Z [info]: Get request made: username = steven12
+2025-03-17T01:25:53.921Z [info]: Get request made: id = 895516b5-c50a-45db-9197-9c899ab7179b
+2025-03-17T01:47:04.776Z [info]: Get request made: id = 895516b5-c50a-45db-9197-9c899ab7179b
+2025-03-17T01:48:08.934Z [info]: Incoming PUT : /users/69b00300-e44f-4755-95d3-68a72246665f
+2025-03-17T02:03:52.126Z [info]: Incoming POST : /users/username/steven12
+2025-03-17T02:04:36.407Z [info]: Get request made: username = steven12
+2025-03-17T02:04:44.118Z [info]: Get request made: id = login
+2025-03-17T02:05:18.897Z [info]: Get request made: id = steven12
+2025-03-17T02:05:33.880Z [info]: Get request made: id = 895516b5-c50a-45db-9197-9c899ab7179b
+2025-03-17T02:05:49.970Z [info]: Get request made: username = steven12
+2025-03-17T02:06:55.966Z [info]: user: [object Object] was created
+2025-03-17T02:09:45.538Z [info]: user: [object Object] was created
