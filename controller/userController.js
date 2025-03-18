@@ -35,14 +35,14 @@ router.post("/login", async (req, res) => {
 })
 
 
-router.get("/", (req, res) => {
+router.get("/", authenticateToken, (req, res) => {
     res.status(200).send("This is the root users route");
     logger.info(`Get request made: ${req.body}`);
 });
 
 
 
-router.get("/:userId", async (req, res) => {
+router.get("/:userId", authenticateToken, async (req, res) => {
     const id = req.params.userId;
     console.log(id);
     
@@ -53,7 +53,7 @@ router.get("/:userId", async (req, res) => {
 });
 
 
-router.get("/username/:username", async (req, res) => {
+router.get("/username/:username", authenticateToken, async (req, res) => {
     const username = req.params.username;
     console.log(username);
     
@@ -91,6 +91,9 @@ router.put("/", authenticateToken, async (req, res) => {
     
     console.log(jsonData);
     const msg = await userService.updateUser(jsonData);
+    if(!msg){
+        return res.status(401).json({"message": "Bad Request, please try again"})
+    }
     res.status(200).json(msg);
 });
 

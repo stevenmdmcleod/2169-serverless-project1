@@ -81,10 +81,10 @@ async function deleteUser(UserId){
 }
 
 async function updateUser(user){
-    console.log(user);
+    /*console.log(user);
     console.log(user.UserId);
     console.log(user.email);
-    console.log(user.is_employed);
+    console.log(user.is_employed);*/
     const command = new UpdateCommand({
         TableName: "Users",
         Key: {UserId : user.UserId},

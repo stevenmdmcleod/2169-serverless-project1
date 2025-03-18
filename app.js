@@ -19,7 +19,7 @@ app.use("/users", userController);
 
 app.use(loggerMiddleware);
 
-app.use("/tickets", ticketController);
+app.use("/tickets", authenticateToken, ticketController);
 
 function loggerMiddleware(req, res, next){
   logger.info(`Incoming ${req.method} : ${req.url}`);
