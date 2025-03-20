@@ -57,6 +57,7 @@ async function getPendingTickets(){
           } 
           catch (err) {
             console.log("Error", err);
+            return null;
           }    
 }
 

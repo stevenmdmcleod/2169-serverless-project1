@@ -110,7 +110,7 @@ async function updateUser(user){
 }
 
 async function updateManagerStatus(UserId, isManager){
-    if(!UserId || (isManager == null)){
+    if(!UserId || !isManager){
         return null;
     }
     const result = await userDao.updateManagerStatus(UserId, isManager);

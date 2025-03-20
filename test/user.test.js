@@ -77,14 +77,11 @@ describe('user tests', () =>{
         dao.getUserByUsername.mockResolvedValueOnce(expectedUser);
         const result = await userService.validateLogin(mockUser.username, mockUser.password);
     
-        console.log(result);
         // Ensure bcrypt.compare was called with the correct arguments
         expect(bcrypt.compare).toHaveBeenCalledWith(mockUser.password, expectedUser.password);
     
         // Ensure the result does not include the password field
-        //const { password, ...expectedUserWithoutPassword } = expectedUser; // omit password
         omitted = userService.omit(expectedUser, 'password');
-        console.log(omitted);
         expect(result).toEqual(omitted);
       });
     

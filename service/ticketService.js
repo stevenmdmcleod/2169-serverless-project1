@@ -77,4 +77,4 @@ function validateTicket(ticket){
 
 }
 
-module.exports = {createTicket, getPendingTickets, getTicketsByUserId, updateTicket}
+module.exports = {createTicket, getPendingTickets, getTicketsByUserId, updateTicket, validateTicket}
