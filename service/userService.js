@@ -34,8 +34,8 @@ async function validateLogin(username, password){
     if(!user.user){
         return null;
     }
-    console.log(user);
-    console.log(password, user.user)
+    //console.log(user);
+    //console.log(password, user.user)
     if(user && (await bcrypt.compare(password, user.user.password)) ){
         return omit(user.user, 'password');
     }
@@ -127,4 +127,4 @@ function omit(obj, keyToOmit) {
     return rest;
   }
 
-module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername, validateLogin, omit}
+module.exports = {createUser, getUser, deleteUser, updateUser, updateManagerStatus, getUserByUsername, validateLogin, omit, validateUser}
