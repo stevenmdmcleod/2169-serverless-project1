@@ -138,38 +138,38 @@ describe("ticketService tests", () => {
 
 
     test('should return false if the ticket is missing amount', () => {
-    const invalidTicket = {
-      description: 'Test ticket description'
+        const invalidTicket = {
+        description: 'Test ticket description'
     };
 
-    const result = ticketService.validateTicket(invalidTicket);
-    expect(result).toBe(false);
+        const result = ticketService.validateTicket(invalidTicket);
+        expect(result).toBe(false);
     });
 
     test('should return false if the ticket is missing description', () => {
-    const invalidTicket = {
-      amount: 100
+        const invalidTicket = {
+        amount: 100
     };
 
-    const result = ticketService.validateTicket(invalidTicket);
-    expect(result).toBe(false);
+        const result = ticketService.validateTicket(invalidTicket);
+        expect(result).toBe(false);
     });
 
     test('should return false if the ticket is missing both amount and description', () => {
-    const invalidTicket = {};
+        const invalidTicket = {};
 
-    const result = ticketService.validateTicket(invalidTicket);
-    expect(result).toBe(false);
+        const result = ticketService.validateTicket(invalidTicket);
+        expect(result).toBe(false);
     });
 
     test('should return true if the ticket has both amount and description', () => {
-    const validTicket = {
-      amount: 100,
-      description: 'Test ticket description'
+        const validTicket = {
+        amount: 100,
+        description: 'Test ticket description'
     };
 
-    const result = ticketService.validateTicket(validTicket);
-    expect(result).toBe(true);
+        const result = ticketService.validateTicket(validTicket);
+        expect(result).toBe(true);
   });
 
 });

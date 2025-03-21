@@ -44,6 +44,8 @@ async function validateLogin(username, password){
     }
 }
 
+
+
 function validateUser(user){
     //helper function for createUser
     const usernameResult = user.username.length > 0;
@@ -96,6 +98,7 @@ async function deleteUser(UserId){
     }
 }
 
+
 async function updateUser(user){
     if(!user){
         return null;
@@ -109,8 +112,9 @@ async function updateUser(user){
     }
 }
 
+
 async function updateManagerStatus(UserId, isManager){
-    if(!UserId || !isManager){
+    if(!UserId || (isManager == null)){
         return null;
     }
     const result = await userDao.updateManagerStatus(UserId, isManager);
@@ -122,6 +126,8 @@ async function updateManagerStatus(UserId, isManager){
     }
 }
 
+
+//omits the password from returned user objects
 function omit(obj, keyToOmit) {
     const { [keyToOmit]: omitted, ...rest } = obj;
     return rest;

@@ -1,6 +1,8 @@
 const ticketDao = require("../repository/ticketDAO");
 const uuid = require('uuid');
 
+
+
 async function createTicket(ticket, userId){
     
         if(validateTicket(ticket)){
@@ -19,6 +21,7 @@ async function createTicket(ticket, userId){
 }
 
 
+//used by managers to get pending tickets
 async function getPendingTickets(){
     
         const result = await ticketDao.getPendingTickets();
@@ -45,7 +48,7 @@ async function getTicketsByUserId(userId){
     }
 }
 
-
+//updates ticket status if ticket is in pending status
 async function updateTicket(ticket){
 
     if(!ticket || !ticket.status || !ticket.ticketId){
@@ -69,12 +72,12 @@ async function updateTicket(ticket){
 }
 
 
+//helper function for validating tickets
 function validateTicket(ticket){
     if(!ticket.amount || !ticket.description){
         return false;
     }
     return true
-
 }
 
 module.exports = {createTicket, getPendingTickets, getTicketsByUserId, updateTicket, validateTicket}

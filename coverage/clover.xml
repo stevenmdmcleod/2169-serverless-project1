@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1742492252605" clover="3.2.0">
-  <project timestamp="1742492252605" name="All files">
+<coverage generated="1742518245464" clover="3.2.0">
+  <project timestamp="1742518245464" name="All files">
     <metrics statements="89" coveredstatements="79" conditionals="67" coveredconditionals="57" methods="14" coveredmethods="14" elements="170" coveredelements="150" complexity="0" loc="89" ncloc="89" packages="1" files="2" classes="2"/>
     <file name="ticketService.js" path="C:\Users\doelc\programming\2169 serverless project1\service\ticketService.js">
       <metrics statements="31" coveredstatements="28" conditionals="23" coveredconditionals="20" methods="5" coveredmethods="5"/>

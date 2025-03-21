@@ -401,3 +401,24 @@
 2025-03-18T20:31:02.060Z [info]: Incoming PUT : /tickets/
 2025-03-18T20:31:08.328Z [info]: Incoming PUT : /tickets/
 2025-03-18T20:31:15.019Z [info]: Incoming PUT : /tickets/
+2025-03-20T18:23:20.648Z [info]: user: [object Object] was created
+2025-03-20T18:33:07.013Z [info]: Get request made: id = cc7457f6-67a9-4ee5-8329-febd2e724a24
+2025-03-20T18:38:52.682Z [info]: Get request made: username = test
+2025-03-20T18:42:10.496Z [info]: Incoming POST : /tickets/
+2025-03-20T19:25:13.936Z [info]: Incoming POST : /tickets/
+2025-03-20T19:25:26.679Z [info]: Incoming POST : /tickets/
+2025-03-20T19:25:29.646Z [info]: Incoming POST : /tickets/
+2025-03-20T19:25:38.709Z [info]: Incoming GET : /tickets/usertickets
+2025-03-20T19:27:15.846Z [info]: Incoming GET : /tickets/tickets
+2025-03-20T19:33:43.928Z [info]: Incoming GET : /tickets/tickets
+2025-03-20T19:34:15.985Z [info]: Incoming GET : /tickets/tickets
+2025-03-20T19:34:19.539Z [info]: Incoming PUT : /tickets/
+2025-03-20T19:34:24.075Z [info]: Incoming PUT : /tickets/
+2025-03-20T19:34:37.401Z [info]: Incoming PUT : /tickets/
+2025-03-20T19:34:39.265Z [info]: Incoming PUT : /tickets/
+2025-03-20T19:44:53.579Z [info]: Get request made: username = test
+2025-03-21T00:51:11.019Z [info]: Incoming GET : /tickets/tickets
+2025-03-21T01:11:55.319Z [info]: Get request made: id = cc7457f6-67a9-4ee5-8329-febd2e724a24
+2025-03-21T01:13:21.110Z [info]: Get request made: username = test
+2025-03-21T01:13:26.955Z [info]: Incoming GET : /tickets/tickets
+2025-03-21T01:16:52.452Z [info]: Incoming GET : /tickets/usertickets

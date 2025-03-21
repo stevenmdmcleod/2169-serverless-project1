@@ -8,6 +8,7 @@ require('dotenv').config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 
+//route for logging in
 router.post("/login", async (req, res) => {
     const {username, password} = req.body;
     console.log(username, password);
@@ -35,13 +36,14 @@ router.post("/login", async (req, res) => {
 })
 
 
+//root user route
 router.get("/", authenticateToken, (req, res) => {
     res.status(200).send("This is the root users route");
     logger.info(`Get request made: ${req.body}`);
 });
 
 
-
+//route for getting users by UserId
 router.get("/:userId", authenticateToken, async (req, res) => {
     const id = req.params.userId;
     console.log(id);
@@ -53,6 +55,7 @@ router.get("/:userId", authenticateToken, async (req, res) => {
 });
 
 
+//route for getting user by username
 router.get("/username/:username", authenticateToken, async (req, res) => {
     const username = req.params.username;
     console.log(username);
@@ -66,6 +69,8 @@ router.get("/username/:username", authenticateToken, async (req, res) => {
     logger.info(`Get request made: username = ${username}`);
 });
 
+
+//route for creating a user
 router.post("/", async (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
@@ -82,6 +87,8 @@ router.post("/", async (req, res) => {
       
 });
 
+
+//route for updating user email and name
 router.put("/", authenticateToken, async (req, res) => {
     console.log(req.user.is_manager,req.user.username,req.body.username);
     if(!req.user.is_manager && !(req.user.username == req.body.username)){
@@ -98,6 +105,7 @@ router.put("/", authenticateToken, async (req, res) => {
 });
 
 
+//route for updating manager status of users
 router.put("/managerstatus",authenticateToken, async (req, res) =>{
     console.log(req.user.is_manager);
     if(!req.user.is_manager){
@@ -113,6 +121,8 @@ router.put("/managerstatus",authenticateToken, async (req, res) =>{
 });
 
 
+
+//route for deleting users
 router.delete("/:userId", authenticateToken, async (req, res) => {
     if(!req.user.is_manager){
         return res.status(403).json({message: "You do not have access to this route!"});

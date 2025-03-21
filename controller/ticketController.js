@@ -5,12 +5,14 @@ const jwt = require("jsonwebtoken");
 const ticketService = require('../service/ticketService');
 const { authenticateToken } = require("../util/jwt");
 
+
+//root route
 router.get("/", authenticateToken, async (req, res) => {
     return res.status(200).send("This is the root tickets route");
-    //logger.info(`Get request made: ${req.body}`);
+    
 });
 
-
+//route for creating tickets
 router.post("/", authenticateToken, async(req, res) => {
     if(req.user.is_manager){
         return res.status(403).json({message: "You do not have access to this route! Managers can not post tickets."});
@@ -29,7 +31,7 @@ router.post("/", authenticateToken, async(req, res) => {
     //return res.status(200).send("post tickets route");
 });
 
-
+//route for updating the status of tickets
 router.put("/", authenticateToken, async (req, res) =>{
     if(!req.user.is_manager){
         return res.status(403).json({message: "You do not have access to this route!"});
@@ -44,6 +46,7 @@ router.put("/", authenticateToken, async (req, res) =>{
 });
 
 
+//route for users to view their tickets
 router.get("/usertickets", authenticateToken, async (req, res) => {
     if(req.user.is_manager){
         return res.status(403).json({message: "You do not have access to this route!"});
@@ -62,6 +65,7 @@ router.get("/usertickets", authenticateToken, async (req, res) => {
 });
 
 
+//route for managers to see all tickets
 router.get("/tickets", authenticateToken, async(req, res) => {
     if(!req.user.is_manager){
         return res.status(403).json({message: "You do not have access to this route!"});
